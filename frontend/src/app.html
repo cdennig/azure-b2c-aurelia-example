@@ -1,0 +1,52 @@
+<template>
+  <require from="./styles/semantic.min.css"></require>
+  <div id="navbar" class="ui main menu fixed" style="min-height: 4em;">
+    <div class="ui container">
+      <div class="header item">
+        <span>Aurelia B2C Example</span>
+      </div>
+      <a class="item" href="#">
+        <i class="dashboard icon"></i>
+        <span>Home</span>
+      </a>
+      <div class="right menu">
+        <a class="item" click.delegate="logout()">
+          <i class="sign out icon"></i>
+          <span>Sign Out</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="ui text container" style="padding-top: 6em;">
+    <div class="ui positive message">
+      <div class="header">
+        Logged in as:
+      </div>
+      <ul class="list">
+        <li>Given Name: ${decodedToken.given_name}</li>
+        <li>Family Name: ${decodedToken.family_name}</li>
+        <li>Email: ${decodedToken.emails[0]}</li>
+        <li>Token Will Expire: ${expires}</li>
+      </ul>
+    </div>
+    <h1 class="ui dividing header">Hello, Starwars Folks!</h1>
+    <table class="ui celled striped table">
+      <thead>
+        <tr>
+          <th colspan="3">
+            Characters
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr repeat.for="person of people">
+          <td class="collapsing">
+            <i class="user icon"></i> ${person.id}
+          </td>
+          <td>${person.name}</td>
+          <td class="right aligned collapsing">${person.email}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</template>
